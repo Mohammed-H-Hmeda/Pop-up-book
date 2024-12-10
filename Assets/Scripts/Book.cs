@@ -40,12 +40,15 @@ public class Book : MonoBehaviour
 
             Zscales[counter] = ZScalingObjects[counter].localScale;
         }
+
         //rotating scaling objects initial
         RotatingObjectInitialX = new Quaternion[plusXObj.Length];
         for (int counter = 0; counter < plusXObj.Length; counter++)
         {
             RotatingObjectInitialX[counter] = plusXObj[counter].rotation;
         }
+        
+        //setting initial values
         initialRotation = transform.rotation;
         bookrotation = 0;
         yscale = Yscales[0].y;
