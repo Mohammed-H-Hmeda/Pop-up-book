@@ -19,10 +19,10 @@ public class Book : MonoBehaviour
     public Transform[] plusXObj;
     float rotobjX;
     Quaternion[] RotatingObjectInitialX;
-    Quaternion[] RotatingObjectInitialMinX;
     //book rotation
     Quaternion initialRotation;
     float bookrotation;
+    //handle camer movement
     private Vector3 lastMousePosition;
     // Start is called before the first frame update
     void Start()
@@ -33,12 +33,14 @@ public class Book : MonoBehaviour
         {
             Yscales[counter] = YScalingobjects[counter].localScale;
         }
+
         Zscales = new Vector3[ZScalingObjects.Length];
         for (int counter = 0; counter < ZScalingObjects.Length; counter++)
         {
 
             Zscales[counter] = ZScalingObjects[counter].localScale;
         }
+        //rotating scaling objects initial
         RotatingObjectInitialX = new Quaternion[plusXObj.Length];
         for (int counter = 0; counter < plusXObj.Length; counter++)
         {
@@ -66,7 +68,7 @@ public class Book : MonoBehaviour
 
         if (Input.GetMouseButton(0))
         {
-            if (mouseDeltaX<0)
+            if (mouseDeltaX < 0)
             {
 
                 bookrotation -= 100 * Time.deltaTime;
@@ -89,9 +91,9 @@ public class Book : MonoBehaviour
 
 
 
-        
 
-            else if (mouseDeltaX>0)
+
+            else if (mouseDeltaX > 0)
             {
                 bookrotation += 100 * Time.deltaTime;
                 bookrotation = Mathf.Clamp(bookrotation, 0, 180);
